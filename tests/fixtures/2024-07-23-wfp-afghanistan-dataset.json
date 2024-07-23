@@ -1,0 +1,951 @@
+[
+{
+    "archived": false,
+    "batch": "9ab85cd2-533d-459b-b710-e0351670a5c5",
+    "caveats": "Although the frequency of updates is set to every month, updates may occur more or less frequently",
+    "creator_user_id": "154de241-38d6-47d3-a77f-0a9848a61df3",
+    "data_update_frequency": "30",
+    "dataseries_name": "WFP - Food Prices",
+    "dataset_date": "[2000-01-15T00:00:00 TO 2024-06-15T23:59:59]",
+    "dataset_preview": "resource_id",
+    "dataset_source": "FPMA, RRD, Vulnerability Analysis and Mapping (VAM) - WFP via FAO: GIEWS, WFP",
+    "due_date": "2024-07-23T09:04:32",
+    "has_geodata": false,
+    "has_quickcharts": true,
+    "has_showcases": true,
+    "id": "a246cbac-42d5-47b2-ba75-ac66f69e83de",
+    "is_requestdata_type": false,
+    "isopen": false,
+    "last_modified": "2024-06-23T09:04:32.451656",
+    "license_id": "cc-by-igo",
+    "license_title": "Creative Commons Attribution for Intergovernmental Organisations",
+    "license_url": "http://creativecommons.org/licenses/by/3.0/igo/legalcode",
+    "maintainer": "f1921552-8c3e-47e9-9804-579b14a83ee3",
+    "maintainer_email": null,
+    "metadata_created": "2018-09-26T15:30:58.590479",
+    "metadata_modified": "2024-06-23T09:04:36.132356",
+    "methodology": "Registry",
+    "name": "wfp-food-prices-for-afghanistan",
+    "notes": "This dataset contains Food Prices data for Afghanistan, sourced from the World Food Programme Price Database. The World Food Programme Price Database covers foods such as maize, rice, beans, fish, and sugar for 98 countries and some 3000 markets. It is updated weekly but contains to a large extent monthly data. The data goes back as far as 1992 for a few countries, although many countries started reporting from 2003 or thereafter.",
+    "num_resources": 2,
+    "num_tags": 5,
+    "organization": {
+        "id": "3ecac442-7fed-448d-8f78-b385ef6f84e7",
+        "name": "wfp",
+        "title": "WFP - World Food Programme",
+        "type": "organization",
+        "description": "The World Food Programme (WFP) is the leading humanitarian organization saving lives and changing lives, **delivering food assistance in emergencies** and **working with communities to improve nutrition and build resilience**.",
+        "image_url": "",
+        "created": "2014-10-24T15:55:52.696098",
+        "is_organization": true,
+        "approval_status": "approved",
+        "state": "active"
+    },
+    "overdue_date": "2024-08-06T09:04:32",
+    "owner_org": "3ecac442-7fed-448d-8f78-b385ef6f84e7",
+    "package_creator": "orest-d",
+    "pageviews_last_14_days": 0,
+    "private": false,
+    "qa_completed": false,
+    "solr_additions": "{\"countries\": [\"Afghanistan\"]}",
+    "state": "active",
+    "subnational": "1",
+    "title": "Afghanistan - Food Prices",
+    "total_res_downloads": 15,
+    "type": "dataset",
+    "updated_by_script": "HDX Scraper: WFP Food Prices (2024-06-23T09:04:31.612473)",
+    "url": null,
+    "version": null,
+    "groups": [
+        {
+            "description": "",
+            "display_name": "Afghanistan",
+            "id": "afg",
+            "image_display_url": "",
+            "name": "afg",
+            "title": "Afghanistan"
+        }
+    ],
+    "tags": [
+        {
+            "display_name": "economics",
+            "id": "f58b7aa5-284f-4e1c-ae35-3ded0f2a4555",
+            "name": "economics",
+            "state": "active",
+            "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"
+        },
+        {
+            "display_name": "food security",
+            "id": "b084d063-149c-4b7d-811b-18e320ca0b8c",
+            "name": "food security",
+            "state": "active",
+            "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"
+        },
+        {
+            "display_name": "hxl",
+            "id": "a0fbb23a-6aad-4ccc-8062-e9ef9f20e5d2",
+            "name": "hxl",
+            "state": "active",
+            "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"
+        },
+        {
+            "display_name": "indicators",
+            "id": "08dade96-0bf4-4248-9d9f-421f7b844e53",
+            "name": "indicators",
+            "state": "active",
+            "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"
+        },
+        {
+            "display_name": "markets",
+            "id": "b62086cd-553f-4464-9cd3-9efb487203fe",
+            "name": "markets",
+            "state": "active",
+            "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"
+        }
+    ],
+    "relationships_as_subject": [],
+    "relationships_as_object": [],
+    "is_fresh": true,
+    "update_status": "fresh",
+    "x_resource_grouping": [],
+    "resources": [
+        {
+            "alt_url": "https://stage.data-humdata-org.ahconu.org/dataset/a246cbac-42d5-47b2-ba75-ac66f69e83de/resource/03e6ce5d-03a2-4e60-8d04-afa39c5972f4/download/",
+            "cache_last_updated": null,
+            "cache_url": null,
+            "created": "2018-09-26T15:30:58.629072",
+            "dataset_preview_enabled": false,
+            "datastore_active": false,
+            "description": "Food prices data with HXL tags",
+            "download_url": "https://stage.data-humdata-org.ahconu.org/dataset/a246cbac-42d5-47b2-ba75-ac66f69e83de/resource/03e6ce5d-03a2-4e60-8d04-afa39c5972f4/download/wfp_food_prices_afg.csv",
+            "format": "CSV",
+            "fs_check_info": [
+                {
+                    "state": "processing",
+                    "message": "The processing of the file structure check has started",
+                    "timestamp": "2024-05-12T09:07:57.525672"
+                },
+                {
+                    "state": "success",
+                    "message": "File structure check completed",
+                    "timestamp": "2024-05-12T09:08:03.906178",
+                    "sheet_changes": [],
+                    "hxl_proxy_response": {
+                        "url_or_filename": "https://data.humdata.org/dataset/a246cbac-42d5-47b2-ba75-ac66f69e83de/resource/03e6ce5d-03a2-4e60-8d04-afa39c5972f4/download/wfp_food_prices_afg.csv",
+                        "format": "CSV",
+                        "sheets": [
+                            {
+                                "name": "__DEFAULT__",
+                                "nrows": 31617,
+                                "ncols": 14,
+                                "is_hidden": false,
+                                "has_merged_cells": false,
+                                "is_hxlated": true,
+                                "header_hash": "bf8206c379509c0ab6592ceb6c0632c4",
+                                "hxl_header_hash": "156e569413e5d54400d79bb9c202a1ce",
+                                "headers": [
+                                    "date",
+                                    "admin1",
+                                    "admin2",
+                                    "market",
+                                    "latitude",
+                                    "longitude",
+                                    "category",
+                                    "commodity",
+                                    "unit",
+                                    "priceflag",
+                                    "pricetype",
+                                    "currency",
+                                    "price",
+                                    "usdprice"
+                                ],
+                                "hxl_headers": [
+                                    "#date",
+                                    "#adm1+name",
+                                    "#adm2+name",
+                                    "#loc+market+name",
+                                    "#geo+lat",
+                                    "#geo+lon",
+                                    "#item+type",
+                                    "#item+name",
+                                    "#item+unit",
+                                    "#item+price+flag",
+                                    "#item+price+type",
+                                    "#currency",
+                                    "#value",
+                                    "#value+usd"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "state": "processing",
+                    "message": "The processing of the file structure check has started",
+                    "timestamp": "2024-05-26T09:10:36.911741"
+                },
+                {
+                    "state": "success",
+                    "message": "File structure check completed",
+                    "timestamp": "2024-05-26T09:10:39.936591",
+                    "sheet_changes": [],
+                    "hxl_proxy_response": {
+                        "url_or_filename": "https://data.humdata.org/dataset/a246cbac-42d5-47b2-ba75-ac66f69e83de/resource/03e6ce5d-03a2-4e60-8d04-afa39c5972f4/download/wfp_food_prices_afg.csv",
+                        "format": "CSV",
+                        "sheets": [
+                            {
+                                "name": "__DEFAULT__",
+                                "nrows": 31617,
+                                "ncols": 14,
+                                "is_hidden": false,
+                                "has_merged_cells": false,
+                                "is_hxlated": true,
+                                "header_hash": "bf8206c379509c0ab6592ceb6c0632c4",
+                                "hxl_header_hash": "156e569413e5d54400d79bb9c202a1ce",
+                                "headers": [
+                                    "date",
+                                    "admin1",
+                                    "admin2",
+                                    "market",
+                                    "latitude",
+                                    "longitude",
+                                    "category",
+                                    "commodity",
+                                    "unit",
+                                    "priceflag",
+                                    "pricetype",
+                                    "currency",
+                                    "price",
+                                    "usdprice"
+                                ],
+                                "hxl_headers": [
+                                    "#date",
+                                    "#adm1+name",
+                                    "#adm2+name",
+                                    "#loc+market+name",
+                                    "#geo+lat",
+                                    "#geo+lon",
+                                    "#item+type",
+                                    "#item+name",
+                                    "#item+unit",
+                                    "#item+price+flag",
+                                    "#item+price+type",
+                                    "#currency",
+                                    "#value",
+                                    "#value+usd"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "state": "processing",
+                    "message": "The processing of the file structure check has started",
+                    "timestamp": "2024-06-02T09:05:54.743552"
+                },
+                {
+                    "state": "success",
+                    "message": "File structure check completed",
+                    "timestamp": "2024-06-02T09:05:59.047131",
+                    "sheet_changes": [
+                        {
+                            "name": "__DEFAULT__",
+                            "event_type": "spreadsheet-sheet-changed",
+                            "changed_fields": [
+                                {
+                                    "field": "nrows",
+                                    "new_value": 32091,
+                                    "new_display_value": 32091,
+                                    "old_value": 31617,
+                                    "old_display_value": 31617
+                                }
+                            ]
+                        }
+                    ],
+                    "hxl_proxy_response": {
+                        "url_or_filename": "https://data.humdata.org/dataset/a246cbac-42d5-47b2-ba75-ac66f69e83de/resource/03e6ce5d-03a2-4e60-8d04-afa39c5972f4/download/wfp_food_prices_afg.csv",
+                        "format": "CSV",
+                        "sheets": [
+                            {
+                                "name": "__DEFAULT__",
+                                "nrows": 32091,
+                                "ncols": 14,
+                                "is_hidden": false,
+                                "has_merged_cells": false,
+                                "is_hxlated": true,
+                                "header_hash": "bf8206c379509c0ab6592ceb6c0632c4",
+                                "hxl_header_hash": "156e569413e5d54400d79bb9c202a1ce",
+                                "headers": [
+                                    "date",
+                                    "admin1",
+                                    "admin2",
+                                    "market",
+                                    "latitude",
+                                    "longitude",
+                                    "category",
+                                    "commodity",
+                                    "unit",
+                                    "priceflag",
+                                    "pricetype",
+                                    "currency",
+                                    "price",
+                                    "usdprice"
+                                ],
+                                "hxl_headers": [
+                                    "#date",
+                                    "#adm1+name",
+                                    "#adm2+name",
+                                    "#loc+market+name",
+                                    "#geo+lat",
+                                    "#geo+lon",
+                                    "#item+type",
+                                    "#item+name",
+                                    "#item+unit",
+                                    "#item+price+flag",
+                                    "#item+price+type",
+                                    "#currency",
+                                    "#value",
+                                    "#value+usd"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "state": "processing",
+                    "message": "The processing of the file structure check has started",
+                    "timestamp": "2024-06-16T09:07:59.858797"
+                },
+                {
+                    "state": "success",
+                    "message": "File structure check completed",
+                    "timestamp": "2024-06-16T09:08:03.328831",
+                    "sheet_changes": [],
+                    "hxl_proxy_response": {
+                        "url_or_filename": "https://data.humdata.org/dataset/a246cbac-42d5-47b2-ba75-ac66f69e83de/resource/03e6ce5d-03a2-4e60-8d04-afa39c5972f4/download/wfp_food_prices_afg.csv",
+                        "format": "CSV",
+                        "sheets": [
+                            {
+                                "name": "__DEFAULT__",
+                                "nrows": 32091,
+                                "ncols": 14,
+                                "is_hidden": false,
+                                "has_merged_cells": false,
+                                "is_hxlated": true,
+                                "header_hash": "bf8206c379509c0ab6592ceb6c0632c4",
+                                "hxl_header_hash": "156e569413e5d54400d79bb9c202a1ce",
+                                "headers": [
+                                    "date",
+                                    "admin1",
+                                    "admin2",
+                                    "market",
+                                    "latitude",
+                                    "longitude",
+                                    "category",
+                                    "commodity",
+                                    "unit",
+                                    "priceflag",
+                                    "pricetype",
+                                    "currency",
+                                    "price",
+                                    "usdprice"
+                                ],
+                                "hxl_headers": [
+                                    "#date",
+                                    "#adm1+name",
+                                    "#adm2+name",
+                                    "#loc+market+name",
+                                    "#geo+lat",
+                                    "#geo+lon",
+                                    "#item+type",
+                                    "#item+name",
+                                    "#item+unit",
+                                    "#item+price+flag",
+                                    "#item+price+type",
+                                    "#currency",
+                                    "#value",
+                                    "#value+usd"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "state": "processing",
+                    "message": "The processing of the file structure check has started",
+                    "timestamp": "2024-06-23T09:04:31.785859"
+                },
+                {
+                    "state": "success",
+                    "message": "File structure check completed",
+                    "timestamp": "2024-06-23T09:04:35.356533",
+                    "sheet_changes": [],
+                    "hxl_proxy_response": {
+                        "url_or_filename": "https://data.humdata.org/dataset/a246cbac-42d5-47b2-ba75-ac66f69e83de/resource/03e6ce5d-03a2-4e60-8d04-afa39c5972f4/download/wfp_food_prices_afg.csv",
+                        "format": "CSV",
+                        "sheets": [
+                            {
+                                "name": "__DEFAULT__",
+                                "nrows": 32091,
+                                "ncols": 14,
+                                "is_hidden": false,
+                                "has_merged_cells": false,
+                                "is_hxlated": true,
+                                "header_hash": "bf8206c379509c0ab6592ceb6c0632c4",
+                                "hxl_header_hash": "156e569413e5d54400d79bb9c202a1ce",
+                                "headers": [
+                                    "date",
+                                    "admin1",
+                                    "admin2",
+                                    "market",
+                                    "latitude",
+                                    "longitude",
+                                    "category",
+                                    "commodity",
+                                    "unit",
+                                    "priceflag",
+                                    "pricetype",
+                                    "currency",
+                                    "price",
+                                    "usdprice"
+                                ],
+                                "hxl_headers": [
+                                    "#date",
+                                    "#adm1+name",
+                                    "#adm2+name",
+                                    "#loc+market+name",
+                                    "#geo+lat",
+                                    "#geo+lon",
+                                    "#item+type",
+                                    "#item+name",
+                                    "#item+unit",
+                                    "#item+price+flag",
+                                    "#item+price+type",
+                                    "#currency",
+                                    "#value",
+                                    "#value+usd"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ],
+            "hash": "",
+            "hdx_rel_url": "/dataset/a246cbac-42d5-47b2-ba75-ac66f69e83de/resource/03e6ce5d-03a2-4e60-8d04-afa39c5972f4/download/wfp_food_prices_afg.csv",
+            "id": "03e6ce5d-03a2-4e60-8d04-afa39c5972f4",
+            "last_modified": "2024-06-23T09:04:32.098761",
+            "metadata_modified": "2024-06-23T09:04:36.168596",
+            "microdata": false,
+            "mimetype": "",
+            "mimetype_inner": null,
+            "name": "Afghanistan - Food Prices",
+            "p_coded": false,
+            "package_id": "a246cbac-42d5-47b2-ba75-ac66f69e83de",
+            "position": 0,
+            "resource_type": "file.upload",
+            "size": 3957256,
+            "state": "active",
+            "url": "https://stage.data-humdata-org.ahconu.org/dataset/a246cbac-42d5-47b2-ba75-ac66f69e83de/resource/03e6ce5d-03a2-4e60-8d04-afa39c5972f4/download/wfp_food_prices_afg.csv",
+            "url_type": "upload",
+            "quickcharts": [
+                {
+                    "id": "5128bd06-9fc5-43ad-b92a-98757a0d5f3e",
+                    "resource_id": "03e6ce5d-03a2-4e60-8d04-afa39c5972f4",
+                    "title": "Data Explorer",
+                    "description": "",
+                    "view_type": "recline_view",
+                    "package_id": "a246cbac-42d5-47b2-ba75-ac66f69e83de"
+                },
+                {
+                    "id": "9cb17799-b80d-4881-8be7-853961620fd7",
+                    "resource_id": "03e6ce5d-03a2-4e60-8d04-afa39c5972f4",
+                    "title": "Quick Charts",
+                    "description": "",
+                    "view_type": "hdx_hxl_preview",
+                    "package_id": "a246cbac-42d5-47b2-ba75-ac66f69e83de"
+                }
+            ]
+        },
+        {
+            "alt_url": "https://stage.data-humdata-org.ahconu.org/dataset/a246cbac-42d5-47b2-ba75-ac66f69e83de/resource/aa468369-81fd-4b52-87f2-950704a5e47f/download/",
+            "cache_last_updated": null,
+            "cache_url": null,
+            "created": "2018-09-26T15:30:58.629083",
+            "dataset_preview_enabled": true,
+            "datastore_active": false,
+            "description": "Food prices QuickCharts data with HXL tags",
+            "download_url": "https://stage.data-humdata-org.ahconu.org/dataset/a246cbac-42d5-47b2-ba75-ac66f69e83de/resource/aa468369-81fd-4b52-87f2-950704a5e47f/download/wfp_food_prices_afg_qc.csv",
+            "format": "CSV",
+            "fs_check_info": [
+                {
+                    "state": "processing",
+                    "message": "The processing of the file structure check has started",
+                    "timestamp": "2024-05-12T09:07:57.525687"
+                },
+                {
+                    "state": "success",
+                    "message": "File structure check completed",
+                    "timestamp": "2024-05-12T09:08:03.801861",
+                    "sheet_changes": [],
+                    "hxl_proxy_response": {
+                        "url_or_filename": "https://data.humdata.org/dataset/a246cbac-42d5-47b2-ba75-ac66f69e83de/resource/aa468369-81fd-4b52-87f2-950704a5e47f/download/wfp_food_prices_afg_qc.csv",
+                        "format": "CSV",
+                        "sheets": [
+                            {
+                                "name": "__DEFAULT__",
+                                "nrows": 818,
+                                "ncols": 3,
+                                "is_hidden": false,
+                                "has_merged_cells": false,
+                                "is_hxlated": true,
+                                "header_hash": "25e1b38bf0702807f633554942555c98",
+                                "hxl_header_hash": "151606aec3c13af8fd0e50bae376291a",
+                                "headers": [
+                                    "date",
+                                    "code",
+                                    "usdprice"
+                                ],
+                                "hxl_headers": [
+                                    "#date",
+                                    "#meta+code",
+                                    "#value+usd"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "state": "processing",
+                    "message": "The processing of the file structure check has started",
+                    "timestamp": "2024-05-26T09:10:36.911751"
+                },
+                {
+                    "state": "success",
+                    "message": "File structure check completed",
+                    "timestamp": "2024-05-26T09:10:39.698146",
+                    "sheet_changes": [],
+                    "hxl_proxy_response": {
+                        "url_or_filename": "https://data.humdata.org/dataset/a246cbac-42d5-47b2-ba75-ac66f69e83de/resource/aa468369-81fd-4b52-87f2-950704a5e47f/download/wfp_food_prices_afg_qc.csv",
+                        "format": "CSV",
+                        "sheets": [
+                            {
+                                "name": "__DEFAULT__",
+                                "nrows": 818,
+                                "ncols": 3,
+                                "is_hidden": false,
+                                "has_merged_cells": false,
+                                "is_hxlated": true,
+                                "header_hash": "25e1b38bf0702807f633554942555c98",
+                                "hxl_header_hash": "151606aec3c13af8fd0e50bae376291a",
+                                "headers": [
+                                    "date",
+                                    "code",
+                                    "usdprice"
+                                ],
+                                "hxl_headers": [
+                                    "#date",
+                                    "#meta+code",
+                                    "#value+usd"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "state": "processing",
+                    "message": "The processing of the file structure check has started",
+                    "timestamp": "2024-06-02T09:05:54.743570"
+                },
+                {
+                    "state": "success",
+                    "message": "File structure check completed",
+                    "timestamp": "2024-06-02T09:05:58.681354",
+                    "sheet_changes": [
+                        {
+                            "name": "__DEFAULT__",
+                            "event_type": "spreadsheet-sheet-changed",
+                            "changed_fields": [
+                                {
+                                    "field": "nrows",
+                                    "new_value": 820,
+                                    "new_display_value": 820,
+                                    "old_value": 818,
+                                    "old_display_value": 818
+                                }
+                            ]
+                        }
+                    ],
+                    "hxl_proxy_response": {
+                        "url_or_filename": "https://data.humdata.org/dataset/a246cbac-42d5-47b2-ba75-ac66f69e83de/resource/aa468369-81fd-4b52-87f2-950704a5e47f/download/wfp_food_prices_afg_qc.csv",
+                        "format": "CSV",
+                        "sheets": [
+                            {
+                                "name": "__DEFAULT__",
+                                "nrows": 820,
+                                "ncols": 3,
+                                "is_hidden": false,
+                                "has_merged_cells": false,
+                                "is_hxlated": true,
+                                "header_hash": "25e1b38bf0702807f633554942555c98",
+                                "hxl_header_hash": "151606aec3c13af8fd0e50bae376291a",
+                                "headers": [
+                                    "date",
+                                    "code",
+                                    "usdprice"
+                                ],
+                                "hxl_headers": [
+                                    "#date",
+                                    "#meta+code",
+                                    "#value+usd"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "state": "processing",
+                    "message": "The processing of the file structure check has started",
+                    "timestamp": "2024-06-16T09:07:59.858814"
+                },
+                {
+                    "state": "success",
+                    "message": "File structure check completed",
+                    "timestamp": "2024-06-16T09:08:03.301820",
+                    "sheet_changes": [],
+                    "hxl_proxy_response": {
+                        "url_or_filename": "https://data.humdata.org/dataset/a246cbac-42d5-47b2-ba75-ac66f69e83de/resource/aa468369-81fd-4b52-87f2-950704a5e47f/download/wfp_food_prices_afg_qc.csv",
+                        "format": "CSV",
+                        "sheets": [
+                            {
+                                "name": "__DEFAULT__",
+                                "nrows": 820,
+                                "ncols": 3,
+                                "is_hidden": false,
+                                "has_merged_cells": false,
+                                "is_hxlated": true,
+                                "header_hash": "25e1b38bf0702807f633554942555c98",
+                                "hxl_header_hash": "151606aec3c13af8fd0e50bae376291a",
+                                "headers": [
+                                    "date",
+                                    "code",
+                                    "usdprice"
+                                ],
+                                "hxl_headers": [
+                                    "#date",
+                                    "#meta+code",
+                                    "#value+usd"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "state": "processing",
+                    "message": "The processing of the file structure check has started",
+                    "timestamp": "2024-06-23T09:04:31.785876"
+                },
+                {
+                    "state": "success",
+                    "message": "File structure check completed",
+                    "timestamp": "2024-06-23T09:04:35.254422",
+                    "sheet_changes": [],
+                    "hxl_proxy_response": {
+                        "url_or_filename": "https://data.humdata.org/dataset/a246cbac-42d5-47b2-ba75-ac66f69e83de/resource/aa468369-81fd-4b52-87f2-950704a5e47f/download/wfp_food_prices_afg_qc.csv",
+                        "format": "CSV",
+                        "sheets": [
+                            {
+                                "name": "__DEFAULT__",
+                                "nrows": 820,
+                                "ncols": 3,
+                                "is_hidden": false,
+                                "has_merged_cells": false,
+                                "is_hxlated": true,
+                                "header_hash": "25e1b38bf0702807f633554942555c98",
+                                "hxl_header_hash": "151606aec3c13af8fd0e50bae376291a",
+                                "headers": [
+                                    "date",
+                                    "code",
+                                    "usdprice"
+                                ],
+                                "hxl_headers": [
+                                    "#date",
+                                    "#meta+code",
+                                    "#value+usd"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ],
+            "hash": "",
+            "hdx_rel_url": "/dataset/a246cbac-42d5-47b2-ba75-ac66f69e83de/resource/aa468369-81fd-4b52-87f2-950704a5e47f/download/wfp_food_prices_afg_qc.csv",
+            "id": "aa468369-81fd-4b52-87f2-950704a5e47f",
+            "last_modified": "2024-06-23T09:04:32.451656",
+            "metadata_modified": "2024-06-23T09:04:35.484853",
+            "microdata": false,
+            "mimetype": "",
+            "mimetype_inner": null,
+            "name": "QuickCharts: Afghanistan - Food Prices",
+            "p_coded": false,
+            "package_id": "a246cbac-42d5-47b2-ba75-ac66f69e83de",
+            "position": 1,
+            "resource_type": "file.upload",
+            "size": 50612,
+            "state": "active",
+            "url": "https://stage.data-humdata-org.ahconu.org/dataset/a246cbac-42d5-47b2-ba75-ac66f69e83de/resource/aa468369-81fd-4b52-87f2-950704a5e47f/download/wfp_food_prices_afg_qc.csv",
+            "url_type": "upload",
+            "quickcharts": [
+                {
+                    "id": "4f4fc664-8140-4c2f-b3a8-455544936d95",
+                    "resource_id": "aa468369-81fd-4b52-87f2-950704a5e47f",
+                    "title": "Data Explorer",
+                    "description": "",
+                    "view_type": "recline_view",
+                    "package_id": "a246cbac-42d5-47b2-ba75-ac66f69e83de"
+                },
+                {
+                    "id": "07b464ad-976d-46d9-8a49-ab8aee79b3c6",
+                    "resource_id": "aa468369-81fd-4b52-87f2-950704a5e47f",
+                    "title": "Quick Charts",
+                    "description": "",
+                    "view_type": "hdx_hxl_preview",
+                    "hxl_preview_config": {
+                        "configVersion": 5,
+                        "bites": [
+                            {
+                                "tempShowSaveCancelButtons": false,
+                                "ingredient": {
+                                    "aggregateColumn": null,
+                                    "valueColumn": "#value+usd",
+                                    "aggregateFunction": "sum",
+                                    "dateColumn": "#date",
+                                    "comparisonValueColumn": null,
+                                    "comparisonOperator": null,
+                                    "filters": {
+                                        "filterWith": [
+                                            {
+                                                "#meta+code": "Kandahar-Kandahar-Kandahar-Wheat-KG-Retail-AFN"
+                                            }
+                                        ]
+                                    },
+                                    "description": "Price of Wheat ($/KG) in Kandahar"
+                                },
+                                "type": "timeseries",
+                                "errorMsg": null,
+                                "computedProperties": {
+                                    "explainedFiltersMap": {
+                                        "remove empty valued rows": {
+                                            "filterWith": [
+                                                {
+                                                    "#value+usd": "is not empty"
+                                                }
+                                            ],
+                                            "filterWithout": []
+                                        }
+                                    },
+                                    "pieChart": false,
+                                    "title": "Sum of Value by Year",
+                                    "dataTitle": "US Dollars ($)"
+                                },
+                                "uiProperties": {
+                                    "swapAxis": true,
+                                    "showGrid": true,
+                                    "color": "#0077ce",
+                                    "sortingByValue1": "DESC",
+                                    "sortingByCategory1": null,
+                                    "showPoints": true,
+                                    "internalColorPattern": [
+                                        "#1ebfb3",
+                                        "#0077ce",
+                                        "#f2645a",
+                                        "#9C27B0"
+                                    ],
+                                    "title": "Price of Wheat in Kandahar",
+                                    "dateFormat": "%Y"
+                                },
+                                "dataProperties": {},
+                                "displayCategory": "Timeseries",
+                                "hashCode": 498306664
+                            },
+                            {
+                                "tempShowSaveCancelButtons": false,
+                                "ingredient": {
+                                    "aggregateColumn": null,
+                                    "valueColumn": "#value+usd",
+                                    "aggregateFunction": "sum",
+                                    "dateColumn": "#date",
+                                    "comparisonValueColumn": null,
+                                    "comparisonOperator": null,
+                                    "filters": {
+                                        "filterWith": [
+                                            {
+                                                "#meta+code": "Kabul-Kabul-Kabul-Bread-KG-Retail-AFN"
+                                            }
+                                        ]
+                                    },
+                                    "description": "Price of Bread ($/KG) in Kabul"
+                                },
+                                "type": "timeseries",
+                                "errorMsg": null,
+                                "computedProperties": {
+                                    "explainedFiltersMap": {
+                                        "remove empty valued rows": {
+                                            "filterWith": [
+                                                {
+                                                    "#value+usd": "is not empty"
+                                                }
+                                            ],
+                                            "filterWithout": []
+                                        }
+                                    },
+                                    "pieChart": false,
+                                    "title": "Sum of Value by Year",
+                                    "dataTitle": "US Dollars ($)"
+                                },
+                                "uiProperties": {
+                                    "swapAxis": true,
+                                    "showGrid": true,
+                                    "color": "#0077ce",
+                                    "sortingByValue1": "DESC",
+                                    "sortingByCategory1": null,
+                                    "showPoints": true,
+                                    "internalColorPattern": [
+                                        "#1ebfb3",
+                                        "#0077ce",
+                                        "#f2645a",
+                                        "#9C27B0"
+                                    ],
+                                    "title": "Price of Bread in Kabul",
+                                    "dateFormat": "%Y"
+                                },
+                                "dataProperties": {},
+                                "displayCategory": "Timeseries",
+                                "hashCode": 498306664
+                            },
+                            {
+                                "tempShowSaveCancelButtons": false,
+                                "ingredient": {
+                                    "aggregateColumn": null,
+                                    "valueColumn": "#value+usd",
+                                    "aggregateFunction": "sum",
+                                    "dateColumn": "#date",
+                                    "comparisonValueColumn": null,
+                                    "comparisonOperator": null,
+                                    "filters": {
+                                        "filterWith": [
+                                            {
+                                                "#meta+code": "Hirat-Hirat-Hirat-Wheat flour-KG-Retail-AFN"
+                                            }
+                                        ]
+                                    },
+                                    "description": "Price of Wheat flour ($/KG) in Hirat"
+                                },
+                                "type": "timeseries",
+                                "errorMsg": null,
+                                "computedProperties": {
+                                    "explainedFiltersMap": {
+                                        "remove empty valued rows": {
+                                            "filterWith": [
+                                                {
+                                                    "#value+usd": "is not empty"
+                                                }
+                                            ],
+                                            "filterWithout": []
+                                        }
+                                    },
+                                    "pieChart": false,
+                                    "title": "Sum of Value by Year",
+                                    "dataTitle": "US Dollars ($)"
+                                },
+                                "uiProperties": {
+                                    "swapAxis": true,
+                                    "showGrid": true,
+                                    "color": "#0077ce",
+                                    "sortingByValue1": "DESC",
+                                    "sortingByCategory1": null,
+                                    "showPoints": true,
+                                    "internalColorPattern": [
+                                        "#1ebfb3",
+                                        "#0077ce",
+                                        "#f2645a",
+                                        "#9C27B0"
+                                    ],
+                                    "title": "Price of Wheat flour in Hirat",
+                                    "dateFormat": "%Y"
+                                },
+                                "dataProperties": {},
+                                "displayCategory": "Timeseries",
+                                "hashCode": 498306664
+                            }
+                        ],
+                        "recipeUrl": "https://raw.githubusercontent.com/mcarans/hxl-recipes/dev/recipes/historic-values-filtered/recipe.json"
+                    },
+                    "package_id": "a246cbac-42d5-47b2-ba75-ac66f69e83de"
+                }
+            ]
+        }
+    ],
+    "showcases": [
+        {
+            "author": null,
+            "author_email": null,
+            "creator_user_id": "154de241-38d6-47d3-a77f-0a9848a61df3",
+            "id": "1e36e746-0ed7-4b15-aad4-0c2b1e67ead4",
+            "image_frame_mode": false,
+            "image_url": "https://dataviz.vam.wfp.org/images/overview-image.jpg",
+            "in_carousel_section": false,
+            "in_dataviz_gallery": false,
+            "metadata_created": "2018-09-26T15:31:05.702822",
+            "metadata_modified": "2024-06-23T09:04:35.769914",
+            "name": "wfp-food-prices-for-afghanistan-showcase",
+            "notes": "Afghanistan food prices data from World Food Programme displayed through VAM Economic Explorer",
+            "num_tags": 5,
+            "state": "active",
+            "title": "Afghanistan - Food Prices showcase",
+            "type": "showcase",
+            "url": "https://dataviz.vam.wfp.org/asia-and-the-pacific/afghanistan/overview",
+            "tags": [
+                {
+                    "display_name": "economics",
+                    "id": "f58b7aa5-284f-4e1c-ae35-3ded0f2a4555",
+                    "name": "economics",
+                    "state": "active",
+                    "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"
+                },
+                {
+                    "display_name": "food security",
+                    "id": "b084d063-149c-4b7d-811b-18e320ca0b8c",
+                    "name": "food security",
+                    "state": "active",
+                    "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"
+                },
+                {
+                    "display_name": "hxl",
+                    "id": "a0fbb23a-6aad-4ccc-8062-e9ef9f20e5d2",
+                    "name": "hxl",
+                    "state": "active",
+                    "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"
+                },
+                {
+                    "display_name": "indicators",
+                    "id": "08dade96-0bf4-4248-9d9f-421f7b844e53",
+                    "name": "indicators",
+                    "state": "active",
+                    "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"
+                },
+                {
+                    "display_name": "markets",
+                    "id": "b62086cd-553f-4464-9cd3-9efb487203fe",
+                    "name": "markets",
+                    "state": "active",
+                    "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"
+                }
+            ],
+            "resources": [],
+            "groups": [],
+            "relationships_as_subject": [],
+            "relationships_as_object": []
+        }
+    ]
+}
+]

@@ -1,0 +1,2 @@
+[console_scripts]
+hdx-compare = hdx_file_comparison.cli:hdx_compare
