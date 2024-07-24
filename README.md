@@ -2,6 +2,7 @@
 
 ## Overview
 
+This is proof of concept code to check tabular data files for changes at the cell level.
 
 ## Installation
 
