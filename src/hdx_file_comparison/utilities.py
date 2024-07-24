@@ -23,17 +23,16 @@ def detect_cell_change_from_diff(header: list[str], diff: list[tuple]):
             print(diff[i + 2], flush=True)
             print(diff[i + 3], flush=True)
 
-            # Find index of carets
-
+            # Make a probe row which has the diff ^ characters added
             idxs = [m.start() for m in re.finditer("\^", diff[i + 1][1])]
             print(idxs, flush=True)
             probe_row = list(diff[i][1])
             for idx in idxs:
                 probe_row[idx] = "^"
             probe_row = "".join(probe_row)
-
             row = list(csv.reader([probe_row[2:]]))
 
+            # Check each column in the probe row for the ^ character
             for j, column in enumerate(row[0]):
                 if "^" in column:
                     original_row = list(csv.reader([diff[i][1][2:]]))[0]
@@ -55,12 +54,24 @@ def detect_cell_change_from_diff(header: list[str], diff: list[tuple]):
     return cell_changes
 
 
+def compute_diff_metrics(diff: list[tuple]):
+    diff_metrics = {}
+    diff_metrics["n_lines_changed"] = sum([1 for x in diff if x[1].startswith("? ")]) / 2
+    diff_metrics["n_lines_added"] = (
+        sum([1 for x in diff if x[1].startswith("+ ")]) - diff_metrics["n_lines_changed"]
+    )
+    diff_metrics["n_lines_removed"] = (
+        sum([1 for x in diff if x[1].startswith("- ")]) - diff_metrics["n_lines_changed"]
+    )
+
+    return diff_metrics
+
+
 def process(filepath_1: str, filepath_2: str, encoding: str = "utf-8"):
     # Get headers
     headers = []
     with open(filepath_2, encoding=encoding) as file_handle:
         csv_reader = csv.reader(file_handle)
-
         headers = next(csv_reader)
     # Get diff
     diff = difflib_compare(filepath_1, filepath_2, encoding="utf-8")
