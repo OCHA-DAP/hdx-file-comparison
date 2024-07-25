@@ -71,6 +71,10 @@ def detect_cell_change_from_diff(header: list[str], diff: list[tuple]):
             idxs = [m.start() for m in re.finditer("\^", diff[i + 1][1])]
             print(idxs, flush=True)
             probe_row = list(diff[i][1])
+            # If the row contains ^ characters then this won't work, so we replace them
+            # We're going to throw this probe_row away
+            probe_row = list(map(lambda x: x.replace("^", "*"), probe_row))
+
             for idx in idxs:
                 probe_row[idx] = "^"
             probe_row = "".join(probe_row)

@@ -11,6 +11,7 @@ authors = [
 ]
 
 dependencies = [
+  "multiprocess==0.70.16",
   "click",
   "hatch",
   "pytest",
