@@ -8,7 +8,7 @@
   "editor.formatOnSave": true,
   "prettier.enable": false,
   "python.testing.pytestArgs": [
-    "--cov=hdx_cli_toolkit",
+    "--cov=hdx_file_comparison",
     "--cov-config=config/.coveragerc",
     "--cov-report=xml:cov.xml",
     "tests"

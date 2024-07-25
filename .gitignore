@@ -1,13 +1,10 @@
 
 venv/
 *.pyc
-src/hdx_cli_toolkit.egg-info/
+src/hdx_file_comparison.egg-info/
 .coverage
 
 cov.xml
-
-
-
 
 tests/fixtures/test.csv
 
@@ -15,6 +12,5 @@ src/temp/
 
 dist/
 
-src/hdx_cli_toolkit/output/
 
 output/
