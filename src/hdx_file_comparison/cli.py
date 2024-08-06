@@ -27,9 +27,17 @@ def hdx_compare() -> None:
     default="metadata/admin1",
     help="target theme for download",
 )
-@click.option("--download_directory", is_flag=False, default=None, help="target_directory")
-@click.option("--hapi_site", is_flag=False, default=None, help="target_directory")
+@click.option(
+    "--download_directory", is_flag=False, default=None, help="target directory for download"
+)
+@click.option(
+    "--hapi_site",
+    is_flag=False,
+    default=None,
+    help="HDX HAPI endpoint prefix, .humdata.org/api/v1/ is appended",
+)
 def download(theme: str = "", download_directory: Optional[str] = None, hapi_site: str = "hapi"):
+    """Download HDX HAPI responses as CSV files"""
     download_file(theme, download_directory, hapi_site)
 
 
@@ -40,18 +48,23 @@ def download(theme: str = "", download_directory: Optional[str] = None, hapi_sit
     default="metadata/admin1",
     help="target theme for download",
 )
-@click.option("--download_directory", is_flag=False, default="output", help="target_directory")
+@click.option(
+    "--download_directory",
+    is_flag=False,
+    default="output",
+    help="Directory where files to compare are stored",
+)
 @click.option(
     "--file_1",
     is_flag=False,
     default="2024-08-06-metadata_admin1-hapi.csv",
-    help="target_directory",
+    help="Filename for first file in comparison",
 )
 @click.option(
     "--file_2",
     is_flag=False,
     default="2024-08-06-metadata_admin1-hapi-temporary.csv",
-    help="target_directory",
+    help="Filename for first file in comparison",
 )
 def compare(
     theme: str = "",
@@ -59,6 +72,7 @@ def compare(
     file_1: str = "hapi",
     file_2: str = "hapi",
 ):
+    """Compare files"""
     filepath_1 = os.path.join(download_directory, file_1)
     filepath_2 = os.path.join(download_directory, file_2)
 
@@ -82,6 +96,7 @@ def process(
     theme: str = "metadata/admin1",
     download_directory: Optional[str] = None,
 ):
+    """Download and compare files from the hapi and hapi-temporary endpoints"""
     print_banner("process")
     filepath_1 = download_file(theme, download_directory, "hapi")
     filepath_2 = download_file(theme, download_directory, "hapi-temporary")

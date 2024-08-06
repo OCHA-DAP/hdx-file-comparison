@@ -3,11 +3,27 @@
 ## Overview
 
 This is proof of concept code to check tabular data files for changes at the cell level.
+In addition it also includes code to compare outputs from two different instances of HDX HAPI.
+
 
 ## Installation
 
 ## Usage
 
+```shell
+Usage: hdx-compare [OPTIONS] COMMAND [ARGS]...
+
+  Tools for comparing files from HAPI and HDX
+
+Options:
+  --version  Show the version and exit.
+  --help     Show this message and exit.
+
+Commands:
+  compare   Compare files
+  download  Download HDX HAPI responses as CSV files
+  process   Download and compare files from the hapi and hapi-temporary...
+```
 
 ## Contributions
 

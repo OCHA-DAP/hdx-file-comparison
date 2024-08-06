@@ -183,19 +183,3 @@ def fetch_data_from_hapi(query_url, limit=1000):
         idx += 1
 
     return results
-
-
-def print_banner(action: str):
-    """Simple function to output a banner to console, uses click's secho command but not colour
-    because the underlying colorama does not output correctly to git-bash terminals.
-
-    Arguments:
-        action {str} -- _description_
-    """
-    title = f"HDX CLI toolkit - {action}"
-    timestamp = f"Invoked at: {datetime.datetime.now().isoformat()}"
-    width = max(len(title), len(timestamp))
-    click.secho((width + 4) * "*", bold=True)
-    click.secho(f"* {title:<{width}} *", bold=True)
-    click.secho(f"* {timestamp:<{width}} *", bold=True)
-    click.secho((width + 4) * "*", bold=True)
