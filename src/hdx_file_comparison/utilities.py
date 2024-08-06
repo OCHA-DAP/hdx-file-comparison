@@ -3,7 +3,11 @@
 
 import csv
 import difflib
+import json
 import re
+
+from urllib import request
+
 
 from hdx_file_comparison.time_limiter import run_with_timer, TimeExceededException
 
@@ -129,3 +133,50 @@ def process(filepath_1: str, filepath_2: str, encoding: str = "utf-8"):
     diff_metrics["cell_changes"] = detect_cell_change_from_diff(headers, diff)
 
     return diff_metrics
+
+
+def fetch_data_from_hapi(query_url, limit=1000):
+    """
+    Fetch data from the provided query_url with pagination support.
+
+    Args:
+    - query_url (str): The query URL to fetch data from.
+    - limit (int): The number of records to fetch per request.
+
+    Returns:
+    - list: A list of fetched results.
+    """
+
+    if "encode_app_identifier" in query_url:
+        with request.urlopen(query_url) as response:
+            json_response = json.loads(response.read())
+
+        return json_response
+
+    idx = 0
+    results = []
+
+    while True:
+        offset = idx * limit
+        url = f"{query_url}&offset={offset}&limit={limit}"
+
+        with request.urlopen(url) as response:
+            print(f"Getting results {offset} to {offset+limit-1}")
+            if "output_format=json" in query_url:
+                json_response = json.loads(response.read())
+
+                results.extend(json_response["data"])
+                # If the returned results are less than the limit,
+                # it's the last page
+                if len(json_response["data"]) < limit:
+                    break
+            else:
+                raw = response.read()
+                csv_rows = raw.splitlines()
+                results.extend(csv_rows)
+
+                if len(csv_rows) < limit:
+                    break
+        idx += 1
+
+    return results
