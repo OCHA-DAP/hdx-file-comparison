@@ -3,13 +3,18 @@
 
 import datetime
 import os
+import time
+
+from typing import Optional
+
 import click
+
 from hdx_file_comparison.utilities import (
     fetch_data_from_hapi,
     difflib_compare,
     compute_diff_metrics,
 )
-from typing import Optional
+
 
 LIMIT = 1000
 
@@ -101,31 +106,41 @@ def process(
     filepath_1 = download_file(theme, download_directory, "hapi")
     filepath_2 = download_file(theme, download_directory, "hapi-temporary")
 
+    t0 = time.time()
+    print(f"Analysis started at {datetime.datetime.now().isoformat()} ", flush=True)
     diff = difflib_compare(filepath_1, filepath_2, encoding="utf-8")
 
     # Process diff
     diff_metrics = compute_diff_metrics(diff)
     print("\nChanged line counts:", flush=True)
+    elapsed_time = time.time() - t0
 
     n_changes = 0
     for key, value in diff_metrics.items():
         n_changes += value
-        print(f"{key}:{value}", flush=True)
 
     if n_changes != 0:
         for row in diff:
             print(row, flush=True)
+        for key, value in diff_metrics.items():
+            n_changes += value
+            print(f"{key}:{value}", flush=True)
         click.secho(
             f"\nFiles for theme '{theme}' are different, {n_changes} changes seen",
             fg="red",
             color=True,
         )
     else:
+        for key, value in diff_metrics.items():
+            n_changes += value
+            print(f"{key}:{value}", flush=True)
         click.secho(
             f"\nFiles for theme '{theme}' are identical",
             fg="green",
             color=True,
         )
+
+    print(f"Analysis took {elapsed_time:0.2f} seconds", flush=True)
 
 
 def download_file(theme, download_directory, hapi_site):

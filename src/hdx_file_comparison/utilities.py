@@ -5,6 +5,7 @@ import csv
 import difflib
 import json
 import re
+import time
 
 from urllib import request
 
@@ -156,6 +157,7 @@ def fetch_data_from_hapi(query_url, limit=1000):
     idx = 0
     results = []
 
+    t0 = time.time()
     while True:
         offset = idx * limit
         url = f"{query_url}&offset={offset}&limit={limit}"
@@ -182,4 +184,5 @@ def fetch_data_from_hapi(query_url, limit=1000):
                     break
         idx += 1
 
+    print(f"Download took {time.time()-t0:0.2f} seconds", flush=True)
     return results
