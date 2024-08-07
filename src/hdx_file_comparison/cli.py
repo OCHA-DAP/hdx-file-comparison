@@ -108,7 +108,7 @@ def process(
 
     t0 = time.time()
     print(f"Analysis started at {datetime.datetime.now().isoformat()} ", flush=True)
-    diff = difflib_compare(filepath_1, filepath_2, encoding="utf-8")
+    diff = difflib_compare(filepath_1, filepath_2, encoding="utf-8", line_limit=100)
 
     # Process diff
     diff_metrics = compute_diff_metrics(diff)
@@ -123,7 +123,6 @@ def process(
         for row in diff:
             print(row, flush=True)
         for key, value in diff_metrics.items():
-            n_changes += value
             print(f"{key}:{value}", flush=True)
         click.secho(
             f"\nFiles for theme '{theme}' are different, {n_changes} changes seen",
@@ -132,7 +131,6 @@ def process(
         )
     else:
         for key, value in diff_metrics.items():
-            n_changes += value
             print(f"{key}:{value}", flush=True)
         click.secho(
             f"\nFiles for theme '{theme}' are identical",
@@ -144,8 +142,21 @@ def process(
 
 
 def download_file(theme, download_directory, hapi_site):
+    # Filenaming
     if download_directory is None:
         download_directory = os.path.join(os.path.dirname(__file__), "output")
+
+    date_ = datetime.datetime.now().isoformat()[0:10]
+    output_filename = f"{date_}-{theme.replace('/','_')}-{hapi_site}.csv"
+    output_file_path = os.path.join(download_directory, output_filename)
+
+    if os.path.exists(output_file_path):
+        print(
+            f"Expected file {output_file_path}, already exists - delete if you wish it to be redownloade",
+            flush=True,
+        )
+        return output_file_path
+    # App identifier
     email_address = "ian.hopkinson%40humdata.org"
     app_name = "hdx_file_comparison"
 
@@ -157,15 +168,12 @@ def download_file(theme, download_directory, hapi_site):
 
     app_identifier = app_identifier_response["encoded_app_identifier"]
 
+    # Querying
     query_url = (
         f"https://{hapi_site}.humdata.org/api/v1/{theme}?"
         f"output_format=csv"
         f"&app_identifier={app_identifier}"
     )
-
-    date_ = datetime.datetime.now().isoformat()[0:10]
-    output_filename = f"{date_}-{theme.replace('/','_')}-{hapi_site}.csv"
-    output_file_path = os.path.join(download_directory, output_filename)
 
     print(f"\nFetching data from: {query_url}", flush=True)
     print(f"Saving to: {output_file_path}", flush=True)

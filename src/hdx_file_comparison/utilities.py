@@ -7,6 +7,8 @@ import json
 import re
 import time
 
+from typing import Optional
+
 from urllib import request
 
 
@@ -15,10 +17,16 @@ from hdx_file_comparison.time_limiter import run_with_timer, TimeExceededExcepti
 MAX_EXECUTION_TIME = 20
 
 
-def difflib_compare(filepath_1: str, filepath_2: str, encoding: str = "utf-8") -> list[tuple]:
+def difflib_compare(
+    filepath_1: str, filepath_2: str, encoding: str = "utf-8", line_limit: Optional[int] = None
+) -> list[tuple]:
+    print(f"Using line_limit of {line_limit} in difflib_compare", flush=True)
+
+    file_1 = open(filepath_1, encoding=encoding).read().splitlines()[0:line_limit]
+    file_2 = open(filepath_2, encoding=encoding).read().splitlines()[0:line_limit]
     diff = difflib.ndiff(
-        open(filepath_1, encoding=encoding).read().splitlines(),
-        open(filepath_2, encoding=encoding).read().splitlines(),
+        file_1,
+        file_2,
     )
     return [(i, x) for i, x in enumerate(diff) if x[0] in ["-", "+", "?"]]
 
