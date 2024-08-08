@@ -10,6 +10,7 @@ import time
 from typing import Optional
 
 from urllib import request
+from collections import Counter
 
 
 from hdx_file_comparison.time_limiter import run_with_timer, TimeExceededException
@@ -172,6 +173,7 @@ def fetch_data_from_hapi(query_url, limit=1000):
 
         with request.urlopen(url) as response:
             print(f"Getting results {offset} to {offset+limit-1}")
+            print(f"{url}", flush=True)
             encoding = response.headers.get_content_charset()
 
             # print(response.headers, flush=True)
@@ -186,7 +188,11 @@ def fetch_data_from_hapi(query_url, limit=1000):
             else:
                 raw = response.read().decode(encoding)
                 csv_rows = raw.splitlines()
-                results.extend(csv_rows)
+                # Don't include the header line except for the first file
+                if len(results) == 0:
+                    results.extend(csv_rows)
+                else:
+                    results.extend(csv_rows[1:])
 
                 if len(csv_rows) < limit:
                     break
@@ -194,3 +200,69 @@ def fetch_data_from_hapi(query_url, limit=1000):
 
     print(f"Download took {time.time()-t0:0.2f} seconds", flush=True)
     return results
+
+
+def hash_based_file_comparison(
+    filepath_1: str, filepath_2: str, encoding: str = "utf-8", line_limit: Optional[int] = None
+) -> dict:
+    hash_metrics = {}
+
+    file_1 = open(filepath_1, encoding=encoding).read().splitlines()[0:line_limit]
+    file_2 = open(filepath_2, encoding=encoding).read().splitlines()[0:line_limit]
+
+    hash_metrics["file_1_length"] = len(file_1)
+    hash_metrics["file_2_length"] = len(file_2)
+
+    # if len(file_1) == len(file_2):
+    #     print(f"File lengths match at {len(file_1)} lines", flush=True)
+    # else:
+    #     print(f"File length mismatch file_1 = {len(file_1)}, file_2 = {len(file_2)}", flush=True)
+
+    hash_metrics["file_1_hash"] = hash(frozenset(file_1))
+    hash_metrics["file_2_hash"] = hash(frozenset(file_2))
+
+    hash_metrics["file_1_unique"] = len(frozenset(file_1))
+    hash_metrics["file_2_unique"] = len(frozenset(file_2))
+
+    if hash_metrics["file_1_unique"] != hash_metrics["file_2_unique"]:
+        file_1_counter = Counter(file_1)
+        file_2_counter = Counter(file_2)
+
+        print("\nfile 1 counter")
+        for k, v in file_1_counter.items():
+            if v != 1:
+                print(k, v, flush=True)
+
+        print("\nfile 2 counter")
+        for k, v in file_2_counter.items():
+            if v != 1:
+                print(k, v, flush=True)
+
+    if hash_metrics["file_1_hash"] != hash_metrics["file_2_hash"]:
+        file_1_set = frozenset(file_1)
+        file_2_set = frozenset(file_2)
+
+        differing_elements = list(file_1_set.difference(file_2_set))
+        hash_metrics["n_common"] = len(list(file_1_set.intersection(file_2_set)))
+        hash_metrics["n_differing"] = len(differing_elements)
+        # print(
+        #     f"{n_common} lines common to both sets, {len(differing_elements)} lines difference",
+        #     flush=True,
+        # )
+
+        in_1_but_not_2 = file_1_set - file_2_set
+        in_2_but_not_1 = file_2_set - file_1_set
+
+        print("in 1 but not in 2")
+        for element in sorted(list(in_1_but_not_2))[0:10]:
+            print(element, flush=True)
+
+        print("in 2 but not in 1")
+        for element in sorted(list(in_2_but_not_1))[0:10]:
+            print(element, flush=True)
+
+    else:
+        hash_metrics["n_common"] = hash_metrics["file_1_length"]
+        hash_metrics["n_differing"] = 0
+
+    return hash_metrics

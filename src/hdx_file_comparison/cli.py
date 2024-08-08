@@ -13,6 +13,7 @@ from hdx_file_comparison.utilities import (
     fetch_data_from_hapi,
     difflib_compare,
     compute_diff_metrics,
+    hash_based_file_comparison,
 )
 
 
@@ -97,18 +98,66 @@ def compare(
     help="target theme for download",
 )
 @click.option("--download_directory", is_flag=False, default="output", help="target_directory")
+@click.option(
+    "--country", is_flag=False, default=None, help="Country filter code (ISO 3166 alpha-3)"
+)
 def process(
     theme: str = "metadata/admin1",
     download_directory: Optional[str] = None,
+    country: Optional[str] = None,
 ):
     """Download and compare files from the hapi and hapi-temporary endpoints"""
     print_banner("process")
-    filepath_1 = download_file(theme, download_directory, "hapi")
-    filepath_2 = download_file(theme, download_directory, "hapi-temporary")
+    filepath_1 = download_file(theme, download_directory, "hapi", country=country)
+    filepath_2 = download_file(theme, download_directory, "hapi-temporary", country=country)
+
+    # Hash based comparisons
+    print(f"\nHash analysis started at {datetime.datetime.now().isoformat()} ", flush=True)
+    hash_metrics = hash_based_file_comparison(filepath_1, filepath_2)
+    if hash_metrics["file_1_length"] == hash_metrics["file_2_length"]:
+        click.secho(
+            f"File lengths match at {hash_metrics['file_1_length']} lines",
+            fg="green",
+            color=True,
+        )
+    else:
+        click.secho(
+            f"File length mismatch file_1 = {hash_metrics['file_1_length']}, "
+            f"file_2 = {hash_metrics['file_2_length']}",
+            fg="red",
+            color=True,
+        )
+
+    if hash_metrics["file_1_hash"] == hash_metrics["file_2_hash"]:
+        click.secho(
+            "Order independent file hashes match",
+            fg="green",
+            color=True,
+        )
+    else:
+        click.secho(
+            "Order independent file hash mismatch",
+            fg="red",
+            color=True,
+        )
+
+    if hash_metrics["file_1_unique"] == hash_metrics["file_2_unique"]:
+        click.secho(
+            "Unique row counts match",
+            fg="green",
+            color=True,
+        )
+    else:
+        click.secho(
+            f"Unique row counts mismatch. file_1 = {hash_metrics['file_1_unique']}, "
+            f"file_2 = {hash_metrics['file_2_unique']}",
+            fg="red",
+            color=True,
+        )
 
     t0 = time.time()
-    print(f"Analysis started at {datetime.datetime.now().isoformat()} ", flush=True)
-    diff = difflib_compare(filepath_1, filepath_2, encoding="utf-8", line_limit=100)
+    print(f"\nDifflib analysis started at {datetime.datetime.now().isoformat()} ", flush=True)
+    diff = difflib_compare(filepath_1, filepath_2, encoding="utf-8")
 
     # Process diff
     diff_metrics = compute_diff_metrics(diff)
@@ -120,8 +169,8 @@ def process(
         n_changes += value
 
     if n_changes != 0:
-        for row in diff:
-            print(row, flush=True)
+        # for row in diff:
+        #     print(row, flush=True)
         for key, value in diff_metrics.items():
             print(f"{key}:{value}", flush=True)
         click.secho(
@@ -141,18 +190,24 @@ def process(
     print(f"Analysis took {elapsed_time:0.2f} seconds", flush=True)
 
 
-def download_file(theme, download_directory, hapi_site):
+def download_file(
+    theme: str, download_directory, hapi_site: str, country: Optional[str] = None
+) -> str:
     # Filenaming
     if download_directory is None:
         download_directory = os.path.join(os.path.dirname(__file__), "output")
 
     date_ = datetime.datetime.now().isoformat()[0:10]
-    output_filename = f"{date_}-{theme.replace('/','_')}-{hapi_site}.csv"
+    if country is not None:
+        output_filename = f"{date_}-{theme.replace('/','_')}-{hapi_site}-{country}.csv"
+    else:
+        output_filename = f"{date_}-{theme.replace('/','_')}-{hapi_site}.csv"
     output_file_path = os.path.join(download_directory, output_filename)
 
     if os.path.exists(output_file_path):
         print(
-            f"Expected file {output_file_path}, already exists - delete if you wish it to be redownloade",
+            f"Expected file {output_file_path}, "
+            "already exists - delete if you wish it to be re-downloaded",
             flush=True,
         )
         return output_file_path
@@ -172,8 +227,15 @@ def download_file(theme, download_directory, hapi_site):
     query_url = (
         f"https://{hapi_site}.humdata.org/api/v1/{theme}?"
         f"output_format=csv"
+        f"&location_code={country}"
         f"&app_identifier={app_identifier}"
     )
+
+    if "refugees" in theme:
+        query_url = query_url.replace("location_code", "origin_location_code")
+
+    if country is None:
+        query_url = query_url.replace("&location_code=None", "")
 
     print(f"\nFetching data from: {query_url}", flush=True)
     print(f"Saving to: {output_file_path}", flush=True)
